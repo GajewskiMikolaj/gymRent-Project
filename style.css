@@ -198,18 +198,65 @@ nav .logo {
 .articles {
     display: flex;
     justify-content: center;
-    gap: 10rem;
+    align-items: center;
     margin-top: 5rem;
+    position: relative;
+}
+
+.articles i {
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 46px;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 46px;
+    width: 46px;
+    transform: translateY(250%);
+    position: absolute;
+    top: 50%;
+}
+
+.articles i:first-child {
+    display: none;
+    left: 23px;
+    z-index: 1;
+}
+
+.articles i:last-child {
+    right: 23px;
+}
+
+.articles .carousel {
+    overflow: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+}
+
+.carousel.dragging {
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.carousel {
+    display: flex;
+    width: calc(100% / 1.43);
+    overflow: hidden
 }
 
 .blog-container {
     margin-top: 15rem;
+    margin-left: 15px;
 }
 
 .blog-container:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: .3s ease;
+}
+
+.blog-container:first-child {
+    margin-left: 0px;
 }
 
 .blog {
@@ -233,14 +280,14 @@ nav .logo {
 }
 
 @media only screen and (max-width: 1350px){
-    .blog-container:nth-child(n + 3) {
-        display: none;
+    .carousel {
+        width: calc(100% / 1);
     }
 }
 
 @media only screen and (max-width: 780px){
-    .blog-container:nth-child(n + 2) {
-        display: none;
+    .carousel {
+        width: calc(100% / 1);
     }
 }
 
@@ -262,10 +309,9 @@ nav .logo {
 
 footer {
     background: black;
-    margin-top: 10rem;
-    height: 9rem;
+    margin-top: 4rem;
     width: 100%;
-    left: 0;
+    height: 9rem;
     bottom: 0;
 }
 
@@ -273,7 +319,7 @@ footer {
     color: white;
 }
 
-.footer-container .footer-contact {
+.footer-contact p{
     display: flex;
     float: right;
     margin: 50px 30px;
@@ -282,4 +328,13 @@ footer {
 
 .footer-container .social-media {
     display: flex;
+}
+
+@media only screen and (max-width: 780px){
+    footer {
+        bottom: 0;
+    }
+    .footer-contact p{
+        margin: 10px 2px;
+    }
 }
